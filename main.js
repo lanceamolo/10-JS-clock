@@ -1,19 +1,19 @@
 function startTime() {
   let today = new Date()
   let h = today.getHours()
-  let amOrPm = h >= 12 ? "pm" : "am"
-  h = h % 12 || 12
+  h = h >= 12 ? h - 12 : h
   let m = today.getMinutes()
   let s = today.getSeconds()
-  h = checkTime(h)
-  m = checkTime(m)
-  s = checkTime(s)
-  document.getElementById("clock").innerHTML = h + ":" + m + ":" + s + amOrPm
+  h = zeroBefore(h)
+  m = zeroBefore(m)
+  s = zeroBefore(s)
+  document.getElementById("clock").innerHTML = h + ":" + m + ":" + s
 }
 
-let = setInterval(startTime, 1000)
+startTime()
+setInterval(startTime, 1000)
 
-function checkTime(i) {
+function zeroBefore(i) {
   if (i <= 9) {
     i = "0" + i
   }
