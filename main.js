@@ -1,5 +1,5 @@
 function startTime() {
-  let today = new Date()
+  const today = new Date()
   let h = today.getHours()
   h = h >= 12 ? h - 12 : h
   let m = today.getMinutes()
